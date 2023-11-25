@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\OrderRequest;
-use http\Env\Request;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class OrderControlller extends Controller
@@ -19,7 +19,7 @@ class OrderControlller extends Controller
                 'cities.name as city_name')
             ->get();
 
-        $totalOrder = DB::table('orders')->sum('total');
+        $totalOrder = DB::table('orders')->where('status', 1)->sum('total');
         $donations = DB::table('donations')->sum('amount');
         $ordersCount = DB::table('orders')->where('status', 1)->count();
         return view('dashboard', compact('orders', 'totalOrder', 'donations', 'ordersCount'));
@@ -38,7 +38,7 @@ class OrderControlller extends Controller
             'date' => $request->date,
             'total' => $request->total,
             'payment_method' => $request->payment_method,
-            'status' => $request->status,
+            'status' => rand(1, 3),
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -56,6 +56,7 @@ class OrderControlller extends Controller
             'city_id' => $request->city_id,
             'name' => $request->name,
             'email' => $request->email,
+            'status' => 1,
             'payment_method' => $request->payment_method,
             'created_at' => now(),
             'updated_at' => now()
@@ -65,23 +66,4 @@ class OrderControlller extends Controller
             'message' => 'Donation created successfully'
         ], 201);
     }
-//    function  edit ($id){
-//        $order = DB::table('orders')
-//            ->join('type_orders', 'orders.type_order_id', '=', 'type_orders.id')
-//            ->join('pet_types', 'orders.pet_type_id', '=', 'pet_types.id')
-//            ->join('cities', 'orders.city_id', '=', 'cities.id')
-//            ->select('orders.*', 'type_orders.name as type_order_name', 'pet_types.name as pet_type_name', 'cities.name as city_name')
-//            ->where('orders.id', '=', $id)
-//            ->first();
-//        return view('order.edit', compact('order'));
-//    }
-//    function  update (OrderRequest $request, $id){
-//        $order = DB::table('orders')
-//            ->where('id', '=', $id)
-//            ->update([
-//                'status' => $request->status,
-//                'updated_at' => now()
-//            ]);
-//        return redirect()->route('order.index');
-//    }
 }

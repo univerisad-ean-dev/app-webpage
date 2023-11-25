@@ -135,7 +135,7 @@
                         </td>
 
                         <td class="px-4 py-3 text-sm">
-                            {{ date_format($order->date, 'd/m/Y') }}
+                            {{ $order->date }}
                         </td>
                     </tr>
                 @endforeach
