@@ -5,6 +5,8 @@
 - PHP : ≥8.0
 - [Composer](https://getcomposer.org/download/).
 - [Git](https://git-scm.com/).
+- [MySQL](https://www.mysql.com/downloads/).
+- [Node.js](https://nodejs.org/es/download/).
 
 ## Instalación :wrench:
 
@@ -22,7 +24,9 @@
     - `DB_USERNAME`: Nombre de usuario de la base de datos.
     - `DB_PASSWORD`: Contraseña de la base de datos.
 6. Ejecutar el comando `php artisan migrate`.
+   7.Ejecutar el comando `npm install`.
 
 ## Ejecución :rocket:
 
 1. Ejecutar el comando `php artisan serve`.
+2. Ejecutar el comando `npm run dev`.
