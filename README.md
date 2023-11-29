@@ -24,7 +24,7 @@
     - `DB_USERNAME`: Nombre de usuario de la base de datos.
     - `DB_PASSWORD`: Contraseña de la base de datos.
 6. Ejecutar el comando `php artisan migrate`.
-   7.Ejecutar el comando `npm install`.
+7. Ejecutar el comando `npm install`.
 
 ## Ejecución :rocket:
 
