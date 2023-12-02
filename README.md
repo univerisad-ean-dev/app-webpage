@@ -30,3 +30,5 @@
 
 1. Ejecutar el comando `php artisan serve`.
 2. Ejecutar el comando `npm run dev`.
+3. se recomienda usar el puerto 8000 para levanatar el servidor.
+
